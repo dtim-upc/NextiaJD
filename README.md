@@ -74,7 +74,7 @@ For Apache Maven, just add the following dependency in your pom.xml:
 </dependency>
 ````
 
-For more ways to import it, please go <a href="https://search.maven.org/artifact/edu.upc.essi.dtim.nextiajd/nextiajd_2.12/1.0/jar">here</a>
+For more ways to import it, please go <a href="https://search.maven.org/artifact/edu.upc.essi.dtim.nextiajd/nextiajd_2.12/1.0.1/jar">here</a>
 
     
 ## Usage    
