@@ -28,7 +28,7 @@ The below parameters are required:
 ## Run
 
 * Open the terminal
-* Go to the directory for the file [FlexMatcher_comparison.py](https://github.com/dtim-upc/NextiaJD/blob/nextiajd_v3.0.1/sql/nextiajd/experiments/FlexMatcher/FlexMatcher_comparison.py)
+* Go to the directory for the file [FlexMatcher_comparison.py](https://github.com/dtim-upc/NextiaJD/blob/1.0/experiments/FlexMatcher/FlexMatcher_comparison.py)
 * Run the `FlexMatcher_comparison.py` to execute the discovery by using the below command. Note you should replace the parameters values with your own.
 
 ```
