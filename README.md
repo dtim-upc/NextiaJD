@@ -5,7 +5,7 @@
   </a>
 </h1>
 
-<h4 align="center">A Scalable Data Discovery solution using profilies based on <a href="https://spark.apache.org/" target="_blank">Apache Spark</a>.</h4>
+<h4 align="center">A Scalable Data Discovery solution using profiles based on <a href="https://spark.apache.org/" target="_blank">Apache Spark</a>.</h4>
 
 <p align="center">
   <a href="#about">About</a> •
