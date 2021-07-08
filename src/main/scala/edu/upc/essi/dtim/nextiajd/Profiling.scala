@@ -15,32 +15,6 @@ import org.apache.spark.sql.functions.{col, desc, expr, lit, lower, size, sounde
 object Profiling {
 
 
-
-  implicit class attProfiling(df: DataFrame) {
-
-
-    def attProfile(flag: Boolean = false): DataFrame = {
-      attributeProfile(df, flag)
-      df
-    }
-
-    def showAttProfile: DataFrame = {
-      attributeProfile(df, false)
-        .drop(Seq("freqWordCleanContainment", "binary", "isEmpty", "bestContainment"): _*)
-        .withColumnRenamed("freqWordContainment", "FrequentWords")
-        .withColumnRenamed("ds_name", "Dataset_name")
-        .withColumnRenamed("att_name", "Attribute_name")
-        .withColumnRenamed("freqWordSoundexContainment", "FrequentWordsInSoundex")
-        .withColumnRenamed("wordsCntMax", "MaxNumberWords")
-        .withColumnRenamed("wordsCntMin", "MinNumberWords")
-        .withColumnRenamed("wordsCntAvg", "AvgNumberWords")
-        .withColumnRenamed("wordsCntSd", "SdNumberWords")
-
-
-    }
-
-  }
-
   def attProfileDiscovery(df: DataFrame): DataFrame = {
     val filename = df.inputFiles(0).split("/").last
     attributeProfile(df).withColumn("bestContainment", col(Cardinality.nameAtt))
