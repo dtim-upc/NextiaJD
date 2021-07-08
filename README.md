@@ -130,12 +130,12 @@ By default, we just show candidates attributes that performs a High and Good qua
 
 ## Demo (Zeppelin Notebook) 
 
-Check out the [demo project](http://35.222.211.178:8080/#/notebook/2FQSWVBQ8) for a quick example of how NextiaJD works. Bear in mind that, in order to access them you must first login with the following credentials (user: user1, password: nextiajd).
+Check out the [demo project](http://dtim.essi.upc.edu:8081/#/notebook/2G9CMU9C4) for a quick example of how NextiaJD works. Bear in mind that, in order to access them you must first login with the following credentials (user: user1, password: nextiajd).
 
-Note that we also have a step by step notebook which can also be found [here](http://35.222.211.178:8080/#/notebook/2FQSWVBQ8)
+Note that we also have a step by step notebook which can also be found [here](http://dtim.essi.upc.edu:8081/#/notebook/2FZ5HCMJQ)
 
-More information and a video can be found [here](https://www.essi.upc.edu/~snadal/nextiajd.html#demonstration)
+More information and a video can be found [here](https://www.essi.upc.edu/~jflores/nextiajd.html#demonstration)
  
 ## Reproducibility of Experiments
 
-We performed differents experiments to evaluate the predictive performance and efficiency of NextiaJD. In the spirit of open research and experimental reproducibility, we provide detailed information on how to reproduce them. More information about it can be found [here](https://github.com/dtim-upc/NextiaJD2/tree/nextiajd_v3.0.1/sql/nextiajd/experiments#experiments-reproducibility).
+We performed differents experiments to evaluate the predictive performance and efficiency of NextiaJD. In the spirit of open research and experimental reproducibility, we provide detailed information on how to reproduce them. More information about it can be found [here](https://github.com/dtim-upc/NextiaJD/tree/1.0/experiments#reproducibility-of-experiments).
