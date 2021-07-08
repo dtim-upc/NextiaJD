@@ -76,50 +76,16 @@ For Apache Maven, just add the following dependency in your pom.xml:
 
 For more ways to import it, please go <a href="https://search.maven.org/artifact/edu.upc.essi.dtim.nextiajd/nextiajd_2.12/1.0/jar">here</a>
 
-  
-There are other two options to install NextiaJD in your computer: <a href="#build-from-sources">building the jars from this repository using Maven</a> or <a href="#download-the-compiled-jars">downloading the NextiaJD compiled jars</a> *(Recommended)*
-  
-### Build from sources 
-
-To install NextiaJD you need to follow the steps below:
-
-* Clone this project
-```  
-$ git clone https://github.com/dtim-upc/NextiaJD2
-```  
-* Go to the project root directory in a terminal
-* Run the command below. It will build the spark catalyst, spark sql and spark nextiajd jars through Maven. Note that this will take some time.
-    * Alternatively, you can build the whole Spark project as specified [here](https://spark.apache.org/docs/latest/building-spark.html)
-```  
-$ ./build/mvn clean package -pl :spark-catalyst_2.12,:spark-sql_2.12,:spark-nextiajd_2.12 -DskipTests 
-```
-* If the build succeeds, you can find the compiled jars under the following directories:
-    * /sql/nextiajd/target/spark-nextiajd_2.12-3.0.1.jar
-    * /sql/core/target/spark-sql_2.12-3.0.1.jar
-    * /sql/catalyst/target/spark-catalyst_2.12-3.0.1.jar
-* Then go to your Spark directory under the **jars** folder e.g. **$SPARK_HOME/jars**
-* Place the downloaded JARs inside the **jars** folder (replace any if necessary)
-* You are now ready to use NextiaJD        
-
-### Download the compiled JARs
-
-To install NextiaJD you need to follow the steps below:
-
-* First, you need to download the compiled jars using these links: 
-    * [Spark-NextiaJD](https://mydisk.cs.upc.edu/s/7wKRxp3DJTgQ7yb/download)
-    * [SparkSQL](https://mydisk.cs.upc.edu/s/B36NjoYC6LTP5GQ/download)
-    * [Catalyst](https://mydisk.cs.upc.edu/s/j6KfLkgqxtprDod/download)
-* Go to your Spark directory under the **jars** folder e.g. **$SPARK_HOME/jars**
-* Place the downloaded JARs inside the **jars** folder (replace any if necessary)
-* You are now ready to use NextiaJD    
-
+    
 ## Usage    
          
 ### Attribute profiling  
   
 To start a profiling we can use the method `attributeProfile()`from a DataFrame object. By default, once a profile is computed, it will be saved in the dataset directory. This allows to reuse the profile for future discoveries without having to compute it again. While you can use any dataset format, we recommend to use parquet files to compute profiles faster.
   
-```  
+``` 
+import edu.upc.essi.dtim.nextiajd.Profiling
+
 val dataset = spark.read.csv(...)  
 # computes attribute profile
 dataset.attributeProfile() 
