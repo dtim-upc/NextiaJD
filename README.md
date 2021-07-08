@@ -59,7 +59,7 @@ The easy way to use NextiaJD is with Maven.
 For SBT just add the following dependency in your build.sbt:
 
 ````
-libraryDependencies += "edu.upc.essi.dtim.nextiajd" % "nextiajd_2.12" % "1.0"
+libraryDependencies += "edu.upc.essi.dtim.nextiajd" % "nextiajd_2.12" % "1.0.1"
 
 ````
 
@@ -70,7 +70,7 @@ For Apache Maven, just add the following dependency in your pom.xml:
 <dependency>
   <groupId>edu.upc.essi.dtim.nextiajd</groupId>
   <artifactId>nextiajd_2.12</artifactId>
-  <version>1.0</version>
+  <version>1.0.1</version>
 </dependency>
 ````
 
@@ -79,18 +79,21 @@ For more ways to import it, please go <a href="https://search.maven.org/artifact
     
 ## Usage    
          
+To start using NextiaJD just import the implicits class as below:
+
+```
+import edu.upc.essi.dtim.NextiaJD.implicits
+```         
 ### Attribute profiling  
   
-To start a profiling we can use the method `attributeProfile()`from a DataFrame object. By default, once a profile is computed, it will be saved in the dataset directory. This allows to reuse the profile for future discoveries without having to compute it again. While you can use any dataset format, we recommend to use parquet files to compute profiles faster.
+Then to start an attribute profile you need to call the method `attProfile()` from a DataFrame object. By default, once a profile is computed, it will be saved in the dataset directory. This allows to reuse the profile for future discoveries without having to compute it again. While you can use any dataset format, we recommend to use parquet files to compute profiles faster.
   
 ``` 
-import edu.upc.essi.dtim.nextiajd.Profiling
-
 val dataset = spark.read.csv(...)  
 # computes attribute profile
-dataset.attributeProfile() 
-# returns a dataframe with the profile information
-dataset.getAttributeProfile()   
+val profile = dataset.attProfile() 
+# show the profile computed from dataset DataFrame
+profile.show()   
 ```  
   
 ### Join Discovery  
@@ -103,19 +106,25 @@ Our Join Discovery is focused on the quality result of a join statement. Thus, w
 * **Poor**: attributes pair with a containment similarity of 0.1    
 * **None**: otherwise   
 
-You can start a discovery by using the function `discovery()` from `org.apache.spark.sql.NextiaJD`. As an example the following code will start a discovery to find any attribute from our dataset that can be used for a join with some dataset from the repository.
+You can start a discovery by using the function `discovery()` from a DataFrame object. As an example the following code will start a discovery to find any attribute from our dataset that can be used for a join with some dataset from the repository.
   
 ```  
-import org.apache.spark.sql.NextiaJD.discovery
-val dataset = spark.read.csv(...) 
-val repository = # list of datasets  
+val dataset = spark.read.csv(...)  
+val repository = # list of candidate datasets to be compared against dataset
 
-import org.apache.spark.sql.NextiaJD.discovery
+#Start discovery, you can also do a discovery by attribute by adding the attribute name in the discovery method such as discovery(respository, "attributeName")
+val discovery = dataset.discovery(respository)
 
-discovery(dataset, repository)
+discovery.show
+
++-------------------+---------------+--------------------+-------------------+-------+------------------+
+|      query dataset|query attribute|   candidate dataset|candidate attribute|quality|       probability|
++-------------------+---------------+--------------------+-------------------+-------+------------------+
+|00_Emma_dataset.csv|        Capital|lista_comunidades...|            Capital|   High|0.5916666666666667|
++-------------------+---------------+--------------------+-------------------+-------+------------------+
 ```    
 
-By default, we just show candidates attributes that performs a High and Good quality joins. If you want to explore Moderate and Poor results, the discovery function have the boolean parameters `showModerate` and `showPoor`. Once enable, the discovery only show results for the specified quality.  
+By default, we just show candidates attributes that performs a High and Good quality joins. If you want to explore Moderate and Poor results, you have to add a suffix to the discovery method such as `discoveryPoor` and `discoveryModerate` that will only show results for the specified quality.  
 
 ## Demo (Zeppelin Notebook) 
 
