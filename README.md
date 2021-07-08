@@ -13,8 +13,8 @@
   <a href="#how-it-works">How it works</a> •
   <a href="#usage">Usage</a> •
   <a href="#installation">Installation</a> •
-  <a href="#demo">Demo</a> •
-  <a href="#experiments-reproducibility">Reproducibility</a>
+  <a href="#demo-zeppelin-notebook">Demo</a> •
+  <a href="#reproducibility-of-experiments">Reproducibility</a>
 </p>
 
 ## About
