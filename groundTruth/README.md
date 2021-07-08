@@ -4,7 +4,7 @@ Here, you can find the code to generate the ground truth.
 
 ## How to run
 
-To compute the ground truth, the class [GroundTruth](https://github.com/dtim-upc/NextiaJD2/blob/nextiajd_v3.0.1/sql/nextiajd/groundTruth/src/main/scala/GroundTruth.scala) needs to be executed with the following parameters.
+To compute the ground truth, the class [GroundTruth](https://github.com/dtim-upc/NextiaJD/blob/1.0/groundTruth/src/main/scala/GroundTruth.scala) needs to be executed with the following parameters.
 
 | Parameter           | Required | Description                                                                                                                                                                                               |
 |---------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
