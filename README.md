@@ -48,13 +48,36 @@ We have as an example two scenarios:
 
 ## Requirements
 
-* Spark 3.0.1
-* Scala 2.12.
+* Spark >= 3.0.1
+* Scala 2.12.*
 * Java 8 or 11
 
 ## Installation
+
+The easy way to use NextiaJD is with Maven. 
+
+For SBT just add the following dependency in your build.sbt:
+
+````
+libraryDependencies += "edu.upc.essi.dtim.nextiajd" % "nextiajd_2.12" % "1.0"
+
+````
+
+For Apache Maven, just add the following dependency in your pom.xml:
+
+
+````
+<dependency>
+  <groupId>edu.upc.essi.dtim.nextiajd</groupId>
+  <artifactId>nextiajd_2.12</artifactId>
+  <version>1.0</version>
+</dependency>
+````
+
+For more ways to import it, please go <a href="https://search.maven.org/artifact/edu.upc.essi.dtim.nextiajd/nextiajd_2.12/1.0/jar">here</a>
+
   
-There are two options to install NextiaJD in your computer: <a href="#by-building-nextiajd-jars">building the jars from this repository using Maven</a> or <a href="#by-downloading-the-compiled-jars">downloading the NextiaJD compiled jars</a> *(Recommended)*
+There are other two options to install NextiaJD in your computer: <a href="#build-from-sources">building the jars from this repository using Maven</a> or <a href="#download-the-compiled-jars">downloading the NextiaJD compiled jars</a> *(Recommended)*
   
 ### Build from sources 
 
@@ -62,7 +85,7 @@ To install NextiaJD you need to follow the steps below:
 
 * Clone this project
 ```  
-$ git clone https://github.com/dtim-upc/NextiaJD
+$ git clone https://github.com/dtim-upc/NextiaJD2
 ```  
 * Go to the project root directory in a terminal
 * Run the command below. It will build the spark catalyst, spark sql and spark nextiajd jars through Maven. Note that this will take some time.
