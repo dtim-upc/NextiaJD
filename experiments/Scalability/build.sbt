@@ -8,19 +8,22 @@ libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value
 
 libraryDependencies += "org.rogach" %% "scallop" % "3.5.1"
 
-libraryDependencies += "org.apache.spark" % "spark-sql" % "3.0.1"  % "provided" from "file:///usr/local/Cellar/apache-spark/3.0.1/libexec/jars/spark-sql_2.12-3.0.1.jar"
+libraryDependencies += "org.apache.spark" %% "spark-core" % "3.0.1" % "provided"
+libraryDependencies += "org.apache.spark" %% "spark-catalyst" % "3.0.1" % "provided"
+libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.0.1" % "provided"
 
-libraryDependencies += "org.apache.spark" % "spark-catalyst" % "3.0.1"  % "provided" from "file:///usr/local/Cellar/apache-spark/3.0.1/libexec/jars/spark-catalyst_2.12-3.0.1.jar"
 
-libraryDependencies += "org.apache.spark" % "spark-nextiajd" % "3.0.1"  % "provided" from "file:///usr/local/Cellar/apache-spark/3.0.1/libexec/jars/spark-nextiajd_2.12-3.0.1.jar"
-
-libraryDependencies += "org.apache.spark" % "spark-core" % "3.0.1"  % "provided" from "file:///usr/local/Cellar/apache-spark/3.0.1/libexec/jars/spark-core_2.12-3.0.1.jar"
-
-libraryDependencies += "org.apache.log4j" % "log4j" % "1.2.17"  % "provided" from "file:///usr/local/Cellar/apache-spark/3.0.1/libexec/jars/log4j-1.2.17.jar"
-
-libraryDependencies += "org.apache.hadoop" % "hadoop-common" % "3.2.1"  % "provided" from "file:///usr/local/Cellar/apache-spark/3.0.1/libexec/jars/hadoop-common-3.2.0.jar"
-
+libraryDependencies += "org.apache.hadoop" % "hadoop-common" % "3.2.1"  % "provided"
 libraryDependencies += "commons-io" % "commons-io" % "2.6"
+
+libraryDependencies += "edu.upc.essi.dtim.nextiajd" % "nextiajd_2.12" % "1.0.1"
+
+assemblyJarName in assembly :=   "Scalability-fatjar-0.1.jar"
+
+assemblyMergeStrategy in assembly := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case x => MergeStrategy.first
+}
 
 //"org.apache.hadoop" % "hadoop-common" % "2.7.0" exclude("org.apache.hadoop", "hadoop-yarn-server-web-proxy"),
 //

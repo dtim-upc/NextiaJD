@@ -3,6 +3,7 @@ import java.io.{BufferedWriter, File, FileWriter}
 import org.apache.spark.sql.functions.col
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 import org.rogach.scallop.ScallopConf
+import edu.upc.essi.dtim.NextiaJD.implicits
 
 object Profiling {
 
@@ -50,7 +51,7 @@ object Profiling {
       println(s"profiling dataset ${f}")
       val timeProfiling = System.nanoTime
       //      mapDS.get(f).get.metaFeatures
-      mapDS.get(f).get.attributeProfile(overrideFlag)
+      mapDS.get(f).get.attProfile(overrideFlag)
       val endProfiling = (System.nanoTime - timeProfiling).abs / 6e10
             print(s"profiling time: ${endProfiling} minutes")
       mapProfiling += f -> endProfiling
@@ -100,7 +101,7 @@ object Profiling {
       println(s"profiling dataset ${f}")
       val timeProfiling = System.nanoTime
 //      mapDS.get(f).get.metaFeatures
-      mapDS.get(f).get.attributeProfile(overrideFlag)
+      mapDS.get(f).get.attProfile(overrideFlag)
       val endProfiling = (System.nanoTime - timeProfiling) / 6e10
       print(s"profiling time: ${endProfiling} minutes")
       mapProfiling += f -> endProfiling
