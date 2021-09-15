@@ -6,7 +6,7 @@ Here, we describe the steps needed to reproduce the experiments that evaluate th
 
 * NextiaJD. To see how to install NextiaJD [check this page](https://github.com/dtim-upc/NextiaJD#installation). 
 * The spark-submit script. You can find this script in your Spark installation under the bin folder e.g $SPARK_HOME/bin
-* A testbed provided for the experiment. See [this link](https://github.com/dtim-upc/NextiaJD/tree/1.0/experiments) for more information.
+* A testbed provided for the experiment. See [this link](https://github.com/dtim-upc/NextiaJD/tree/1.0/experiments#setting) for more information.
 * [NextiaJD_experiments.jar](https://mydisk.cs.upc.edu/s/WPp7ApMzeyPc7sX/download). This JAR should be run with `spark-submit` and we will use the following classes:
     *  **NextiaJD_evaluation** will compute the predictive accuracy: generates the discovery and time execution for the testbed
 
