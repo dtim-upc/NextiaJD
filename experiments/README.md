@@ -38,7 +38,7 @@ Each solution will generate a discovery file with the results proposed. Afterwar
 
 ## Experiment 3: Scalability
 
-The most intensive task for our approach in terms of computational resources is the generation of attribute profiles from datasets. Hence, we performed a stress test of this component. We created a jar to prepare the files for this experiment. The code and more information can be found [here](https://github.com/dtim-upc/NextiaJD/tree/1.0/experiments/Scalability#scalability).
+The most intensive task for our approach in terms of computational resources is the generation of attribute profiles from datasets. Hence, we performed a stress test of this component. We created a jar to prepare the files for this experiment. The code and more information can be found [here](https://github.com/dtim-upc/NextiaJD/tree/main/experiments/Scalability#scalability).
 
 ## Experiment 4: Discovery of semantic non-syntactic relationships
 
