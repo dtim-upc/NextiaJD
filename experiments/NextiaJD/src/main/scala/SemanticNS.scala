@@ -5,9 +5,10 @@ import org.apache.spark.ml.tuning.CrossValidatorModel
 import org.apache.spark.sql.functions.{col, lit, udf, when}
 import org.apache.spark.sql.SparkSession
 import org.rogach.scallop.ScallopConf
-import org.apache.spark.sql.NextiaJD.{second}
 
 object SemanticNS {
+
+  val second = udf((v: org.apache.spark.ml.linalg.Vector) => v.toArray(1))
 
   def assignClass(num0: Double, num1: Double, num2: Double, num3: Double,
                    num4: Double): Int = {

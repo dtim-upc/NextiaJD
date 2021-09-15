@@ -3,9 +3,9 @@ import java.io._
 import org.apache.commons.io.FileUtils
 import org.apache.spark.sql.functions.{col, lit, when}
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
-import org.apache.spark.sql.NextiaJD
 import org.apache.spark.sql.types.StringType
 import org.rogach.scallop.ScallopConf
+import edu.upc.essi.dtim.NextiaJD.implicits
 
 object NextiaJD_evaluation {
 
@@ -71,7 +71,7 @@ object NextiaJD_evaluation {
     for(f <- listFiles){
       println(s"profiling dataset ${f}")
       val timeProfiling = System.nanoTime
-      mapDS.get(f).get.attributeProfile()
+      mapDS.get(f).get.attProfile()
       val endProfiling = (System.nanoTime - timeProfiling).abs / 6e10
       println(s"profiling time: ${endProfiling} minutes")
       mapProfiling += f -> endProfiling
@@ -92,7 +92,8 @@ object NextiaJD_evaluation {
       if(queryType == "querybydataset"){
         println(s"Discovery for $queryDataset")
         val timeQuerying = System.nanoTime
-        val discovery = NextiaJD.discovery(qD, mapDS.-(queryDataset).values.toSeq, showAll = true)
+
+        val discovery = qD.discoveryAll(mapDS.-(queryDataset).values.toSeq)
         discovery.repartition(1).write.mode("overwrite").option("header","true")
           .csv(s"${output}/discovery${cnt}.csv")
 
@@ -105,7 +106,9 @@ object NextiaJD_evaluation {
           cnt2 = cnt2 + 1
           println(s"Discovery for $queryDataset for attribute $qA")
           val timeQuerying = System.nanoTime
-          val discovery = NextiaJD.discovery(qD, mapDS.-(queryDataset).values.toSeq, qA, showAll = true)
+
+          val discovery = qD.discoveryAll(mapDS.-(queryDataset).values.toSeq, qA)
+
           discovery.repartition(1).write.mode("overwrite").option("header","true")
             .csv(s"${output}/discovery${cnt2}.csv")
 
