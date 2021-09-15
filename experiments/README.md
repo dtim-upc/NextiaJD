@@ -23,7 +23,7 @@ Each testbed zip file contains the below files:
 
 The goal of the first experiment is to evaluate the prediction quality on generating a ranking of candidate equi join predicates. 
 
-The code and instructions for this experiment can be found [here](https://github.com/dtim-upc/NextiaJD/tree/1.0/experiments/NextiaJD#experiment-1-predictive-accuracy-of-nextiajd).
+The code and instructions for this experiment can be found [here](https://github.com/dtim-upc/NextiaJD/tree/main/experiments/NextiaJD#experiment-1-predictive-accuracy-of-nextiajd).
 
 ## Experiment 2: Comparison with the state-of-the-art
 
