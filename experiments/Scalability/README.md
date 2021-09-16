@@ -3,12 +3,14 @@
 Since we target large-scale scenarios, we evaluate the scalability of our NextiaJD in such settings. We experiment with different
 file sizes both in terms of rows and columns. For this goal, we create 4 different classes that allows to recreate this experiment and creates the files requirements for this experiment based on a base file.
 
+*Note:* This directory is a normal sbt project. Therefore you can also open it in an IDE as intellij IDEA or any other. And run it with sbt commands to specify the classes mentioned below.
+
 
 ## Prerequisites
 
 * NextiaJD. To see how to install NextiaJD [check this page](https://github.com/dtim-upc/NextiaJD#installation). 
 * The spark-submit script. You can find this scrip in your Spark installation under bin folder e.g $SPARK_HOME/bin
-* Download the [JAR](https://mydisk.cs.upc.edu/s/itRkyqC5yPzd7r3/download) and the source code can be found [here](https://github.com/dtim-upc/NextiaJD/tree/1.0/experiments/Scalability/src/main/scala). This JAR contains the following classes:
+* Download the [JAR](https://mydisk.cs.upc.edu/s/3fa7RQHoycE95F7) and the source code can be found [here](https://github.com/dtim-upc/NextiaJD/tree/main/experiments/Scalability) under src/main/scala directory. This JAR contains the following classes:
     * **GeneratorM** it replicates M columns from a base file.
     * **GeneratorN** it replicates N rows from a base file.
     * **ToParquet** it converts a csv file to a parquet file.

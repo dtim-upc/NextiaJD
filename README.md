@@ -136,4 +136,4 @@ More information and a video can be found [here](https://www.essi.upc.edu/~jflor
  
 ## Reproducibility of Experiments
 
-We performed differents experiments to evaluate the predictive performance and efficiency of NextiaJD. In the spirit of open research and experimental reproducibility, we provide detailed information on how to reproduce them. More information about it can be found [here](https://github.com/dtim-upc/NextiaJD/tree/1.0/experiments#reproducibility-of-experiments).
+We performed differents experiments to evaluate the predictive performance and efficiency of NextiaJD. In the spirit of open research and experimental reproducibility, we provide detailed information on how to reproduce them. More information about it can be found [here](https://github.com/dtim-upc/NextiaJD/tree/main/experiments#reproducibility-of-experiments).

@@ -10,7 +10,7 @@ Here, we describe the steps needed to reproduce the experiments that evaluate th
 * Go to the directory `NextiaJD/experiments/NextiaJD/` 
    * This directory is a normal sbt project. Therefore you can also open it in an IDE as intellij IDEA or any other.
    * If you want sbt to download Apache Spark libraries, you will need to remove `% provided` command in [build.sbt](https://github.com/dtim-upc/NextiaJD/blob/main/experiments/NextiaJD/build.sbt) file.
-* Then, you just have to run the class **NextiaJD_evaluation** providing some of the following parameters:
+* Then, you just have to run the class **NextiaJD_evaluation** (below of the table you have an example of the command to run it with sbt) providing some of the following parameters:
 
 
 | Parameter           | Required | Description                                                                                                 |
