@@ -10,7 +10,7 @@ file sizes both in terms of rows and columns. For this goal, we create 4 differe
 
 * NextiaJD. To see how to install NextiaJD [check this page](https://github.com/dtim-upc/NextiaJD#installation). 
 * The spark-submit script. You can find this scrip in your Spark installation under bin folder e.g $SPARK_HOME/bin
-* Download the [JAR](https://mydisk.cs.upc.edu/s/itRkyqC5yPzd7r3/download) and the source code can be found [here](https://github.com/dtim-upc/NextiaJD/tree/main/experiments/Scalability) under src/main/scala directory. This JAR contains the following classes:
+* Download the [JAR](https://mydisk.cs.upc.edu/s/3fa7RQHoycE95F7) and the source code can be found [here](https://github.com/dtim-upc/NextiaJD/tree/main/experiments/Scalability) under src/main/scala directory. This JAR contains the following classes:
     * **GeneratorM** it replicates M columns from a base file.
     * **GeneratorN** it replicates N rows from a base file.
     * **ToParquet** it converts a csv file to a parquet file.
