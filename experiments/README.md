@@ -8,7 +8,7 @@ For evaluation purposes, we collected 139 real datasets. We further divided such
 
 | Testbed | File size       | datasets | String attributes |
 |---------|-----------------|----------|-------------------|
-| [XS](https://mydisk.cs.upc.edu/s/eCmfrNEBSKkcWcn/download)      | up to 1mb       | 28       | 159               |
+| [XS](https://mydisk.cs.upc.edu/s/eCmfrNEBSKkcWcn/download), [XS with profiles computed](https://mydisk.cs.upc.edu/s/KEGRGHxwgd844aC)      | up to 1mb       | 28       | 159               |
 | [S](https://mydisk.cs.upc.edu/s/dX3FajwWZn7rrrd/download)       | up to 100mb     | 46       | 590               |
 | [M](https://mydisk.cs.upc.edu/s/niPyR4WTtxydprj/download)       | up to 1gb       | 46       | 600               |
 | [L](https://mydisk.cs.upc.edu/s/4qoi76ziT2wJaCR/download)       | bigger than 1gb | 29       | 331               |
