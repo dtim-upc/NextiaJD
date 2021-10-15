@@ -10,8 +10,6 @@ object ProfilingService {
     import edu.upc.essi.dtim.NextiaJD.implicits
     val DF = spark.read.csv(path)
     val profile = DF.attProfile()
-    DF.show()
-    profile.attProfile().showAttProfile.show()
     profile.attProfile().showAttProfile.repartition(1).write.json(output)
   }
 
