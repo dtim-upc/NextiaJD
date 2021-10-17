@@ -23,7 +23,6 @@ object ProfilingService {
     val profile = DF.attProfile()
     profile.show()
     */
-
     val tempFile = File.createTempFile("temp-", ".csv")
     new PrintWriter(tempFile) {
       try {
@@ -33,8 +32,36 @@ object ProfilingService {
       }
     }
     profileFromCSV(spark, tempFile.getAbsolutePath, output)
+  }
 
+  def computeDistancesFromCSV(spark: SparkSession, pathA: String, pathB: String, output: String): Unit = {
+    import edu.upc.essi.dtim.NextiaJD.implicits
+    import edu.upc.essi.dtim.nextiajd.Discovery
+    val DF_A = spark.read.csv(pathA)
+    DF_A.show()
+    val DF_B = spark.read.csv(pathB)
+    Discovery.preDist(DF_A,Seq(DF_B)).show()
+    Discovery.preDist(DF_A,Seq(DF_B)).repartition(1).write.json(output)
+  }
 
+  def computeDistancesFromData(spark: SparkSession, dataA: String, dataB: String, output: String): Unit = {
+    val tempFileA = File.createTempFile("temp-", ".csv")
+    new PrintWriter(tempFileA) {
+      try {
+        write(dataA.replace(",", "\n"))
+      } finally {
+        close()
+      }
+    }
+    val tempFileB = File.createTempFile("temp-", ".csv")
+    new PrintWriter(tempFileB) {
+      try {
+        write(dataB.replace(",", "\n"))
+      } finally {
+        close()
+      }
+    }
+    computeDistancesFromCSV(spark, tempFileA.getAbsolutePath, tempFileB.getAbsolutePath, output)
   }
 
 }
