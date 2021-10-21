@@ -12,7 +12,7 @@ object ProfilingService {
     val fs = FileSystem.get(spark.sparkContext.hadoopConfiguration)
     val file = fs.globStatus(new Path(output+"/part*"))(0).getPath().getName()
 
-    fs.rename(new Path(output+"/" +file), new Path(output+"/distances.json"))
+    fs.rename(new Path(output+"/" +file), new Path(output+"/"+output+".json"))
   }
 
   def profileFromCSV(spark: SparkSession, path: String, output: String): Unit = {
