@@ -17,8 +17,8 @@ object ProfilingService {
 
   def profileFromCSV(spark: SparkSession, path: String, output: String): Unit = {
     import edu.upc.essi.dtim.NextiaJD.implicits
-    val DF = spark.read.csv(path).cache()
-    val profile = DF.attProfile()
+    val DF = spark.read.csv(path)
+    val profile = DF.attProfile(true)
     profile.attProfile().showAttProfile.repartition(1).write.mode(SaveMode.Overwrite).json(output)
     renamePartitionFile(spark,output)
   }
@@ -48,9 +48,12 @@ object ProfilingService {
     import edu.upc.essi.dtim.NextiaJD.implicits
     import edu.upc.essi.dtim.nextiajd.Discovery
     val DF_A = spark.read.csv(pathA)
+    DF_A.attProfile(true)
     //DF_A.cache()
     val DF_B = spark.read.csv(pathB)
+    DF_B.attProfile(true)
     //DF_B.cache()
+    Discovery.preDist(DF_A,Seq(DF_B)).show()
     Discovery.preDist(DF_A,Seq(DF_B)).repartition(1).write.mode(SaveMode.Overwrite).json(output)
     renamePartitionFile(spark,output)
   }
