@@ -48,16 +48,16 @@ object ProfilingService {
   def computeDistancesFromCSV(spark: SparkSession, pathA: String, pathB: String, output: String): Unit = {
     import edu.upc.essi.dtim.NextiaJD.implicits
     import edu.upc.essi.dtim.nextiajd.Discovery
-    val DF_A = spark.read.csv(pathA)
+    val DF_A = spark.read.option("header",true).csv(pathA)
     val tempPathA = Files.createTempFile("a-",".parquet")
     DF_A.write.mode(SaveMode.Overwrite).parquet(tempPathA.toAbsolutePath.toString)
-    val DF_A_parq = spark.read.csv(tempPathA.toAbsolutePath.toString)
+    val DF_A_parq = spark.read.parquet(tempPathA.toAbsolutePath.toString)
     DF_A_parq.attProfile(true)
     //DF_A.cache()
-    val DF_B = spark.read.csv(pathB)
+    val DF_B = spark.read.option("header",true).csv(pathB)
     val tempPathB = Files.createTempFile("b-",".parquet")
     DF_B.write.mode(SaveMode.Overwrite).parquet(tempPathB.toAbsolutePath.toString)
-    val DF_B_parq = spark.read.csv(tempPathB.toAbsolutePath.toString)
+    val DF_B_parq = spark.read.parquet(tempPathB.toAbsolutePath.toString)
     DF_B_parq.attProfile(true)
     //DF_B.cache()
     Discovery.preDist(DF_A_parq,Seq(DF_B_parq)).repartition(1).write.mode(SaveMode.Overwrite).json(output)
