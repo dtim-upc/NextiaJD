@@ -1,6 +1,7 @@
 package nextiajd_api
 
 import java.io.{File, PrintWriter}
+import java.nio.file.Files
 
 import org.apache.spark.sql.{SaveMode, SparkSession}
 
@@ -48,13 +49,18 @@ object ProfilingService {
     import edu.upc.essi.dtim.NextiaJD.implicits
     import edu.upc.essi.dtim.nextiajd.Discovery
     val DF_A = spark.read.csv(pathA)
-    DF_A.attProfile(true)
+    val tempPathA = Files.createTempFile("a-",".parquet")
+    DF_A.write.mode(SaveMode.Overwrite).parquet(tempPathA.toAbsolutePath.toString)
+    val DF_A_parq = spark.read.csv(tempPathA.toAbsolutePath.toString)
+    DF_A_parq.attProfile(true)
     //DF_A.cache()
     val DF_B = spark.read.csv(pathB)
-    DF_B.attProfile(true)
+    val tempPathB = Files.createTempFile("b-",".parquet")
+    DF_B.write.mode(SaveMode.Overwrite).parquet(tempPathB.toAbsolutePath.toString)
+    val DF_B_parq = spark.read.csv(tempPathB.toAbsolutePath.toString)
+    DF_B_parq.attProfile(true)
     //DF_B.cache()
-    Discovery.preDist(DF_A,Seq(DF_B)).show()
-    Discovery.preDist(DF_A,Seq(DF_B)).repartition(1).write.mode(SaveMode.Overwrite).json(output)
+    Discovery.preDist(DF_A_parq,Seq(DF_B_parq)).repartition(1).write.mode(SaveMode.Overwrite).json(output)
     renamePartitionFile(spark,output)
   }
 
