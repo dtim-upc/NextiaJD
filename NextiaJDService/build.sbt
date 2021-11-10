@@ -5,7 +5,9 @@ version := "0.1"
 scalaVersion := "2.12.10"
 
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.1.2" //% "provided"
-libraryDependencies += "edu.upc.essi.dtim.nextiajd" % "nextiajd_2.12" % "1.0.1"
+
+resolvers += "SNAPSHOT" at "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+libraryDependencies += "edu.upc.essi.dtim.nextiajd" % "nextiajd_2.12" % "1.0.2.1-SNAPSHOT"
 
 mainClass := Some("nextiajd_api.Main")
 

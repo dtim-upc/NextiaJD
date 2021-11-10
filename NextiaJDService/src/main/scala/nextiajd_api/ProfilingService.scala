@@ -20,7 +20,7 @@ object ProfilingService {
     import edu.upc.essi.dtim.NextiaJD.implicits
     val DF = spark.read.csv(path)
     val profile = DF.attProfile(true)
-    profile.attProfile().showAttProfile.repartition(1).write.mode(SaveMode.Overwrite).json(output)
+    profile.attProfile(path,true).repartition(1).write.mode(SaveMode.Overwrite).json(output)
     renamePartitionFile(spark,output)
   }
 
@@ -52,15 +52,15 @@ object ProfilingService {
     val tempPathA = Files.createTempFile("a-",".parquet")
     DF_A.write.mode(SaveMode.Overwrite).parquet(tempPathA.toAbsolutePath.toString)
     val DF_A_parq = spark.read.parquet(tempPathA.toAbsolutePath.toString)
-    DF_A_parq.attProfile(true)
-    //DF_A.cache()
+    val profileA = DF_A_parq.attProfile(pathA,true)
+    //profileA.cache()
     val DF_B = spark.read.option("header",true).csv(pathB)
     val tempPathB = Files.createTempFile("b-",".parquet")
     DF_B.write.mode(SaveMode.Overwrite).parquet(tempPathB.toAbsolutePath.toString)
     val DF_B_parq = spark.read.parquet(tempPathB.toAbsolutePath.toString)
-    DF_B_parq.attProfile(true)
-    //DF_B.cache()
-    Discovery.preDist(DF_A_parq,Seq(DF_B_parq)).repartition(1).write.mode(SaveMode.Overwrite).json(output)
+    val profileB = DF_B_parq.attProfile(pathB,true)
+    //profileB.cache()
+    profileA.distances(Seq(profileB)).repartition(1).write.mode(SaveMode.Overwrite).json(output)
     renamePartitionFile(spark,output)
   }
 
