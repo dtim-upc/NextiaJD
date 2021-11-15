@@ -28,18 +28,23 @@ object NextiaJD {
 
 
     def attProfile(flag: Boolean): DataFrame = {
-      attributeProfile(df, flag)
-      df
+      cleanProfile(attributeProfile(df, flag))
     }
 
     def attProfile(): DataFrame = {
-      attributeProfile(df, false)
-      df
+      cleanProfile(attributeProfile(df, false))
     }
 
-    def showAttProfile: DataFrame = {
+    def rawProfile(flag: Boolean): DataFrame = {
+      attributeProfile(df, flag)
+    }
+
+    def rawProfile(): DataFrame = {
       attributeProfile(df, false)
-        .drop(Seq("freqWordCleanContainment", "binary", "isEmpty", "bestContainment"): _*)
+    }
+
+    private[this] def cleanProfile(df: DataFrame) : DataFrame = {
+      df.drop(Seq("freqWordCleanContainment", "binary", "isEmpty", "bestContainment"): _*)
         .withColumnRenamed("freqWordContainment", "FrequentWords")
         .withColumnRenamed("ds_name", "Dataset_name")
         .withColumnRenamed("att_name", "Attribute_name")
@@ -48,9 +53,9 @@ object NextiaJD {
         .withColumnRenamed("wordsCntMin", "MinNumberWords")
         .withColumnRenamed("wordsCntAvg", "AvgNumberWords")
         .withColumnRenamed("wordsCntSd", "SdNumberWords")
-
-
     }
+
+
 
     def discovery(candidates: Seq[DataFrame]): DataFrame ={
       Discovery.discovery(df, candidates)

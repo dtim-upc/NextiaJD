@@ -59,7 +59,7 @@ The easy way to use NextiaJD is with Maven.
 For SBT just add the following dependency in your build.sbt:
 
 ````
-libraryDependencies += "edu.upc.essi.dtim.nextiajd" % "nextiajd_2.12" % "1.0.1"
+libraryDependencies += "edu.upc.essi.dtim.nextiajd" % "nextiajd_2.12" % "1.0.2"
 
 ````
 
