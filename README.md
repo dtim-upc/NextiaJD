@@ -137,3 +137,11 @@ More information and a video can be found [here](https://www.essi.upc.edu/~jflor
 ## Reproducibility of Experiments
 
 We performed differents experiments to evaluate the predictive performance and efficiency of NextiaJD. In the spirit of open research and experimental reproducibility, we provide detailed information on how to reproduce them. More information about it can be found [here](https://github.com/dtim-upc/NextiaJD/tree/main/experiments#reproducibility-of-experiments).
+
+## Publications
+
+Using NextiaJD v1.0.1: 
+
+* ["Towards Scalable Data Discovery"](https://openproceedings.org/2021/conf/edbt/p61.pdf) published in EDBT - 2021
+* ["Effective and scalable data discovery with NextiaJD"](https://openproceedings.org/2021/conf/edbt/p184.pdf) published in EDBT - 2021
+
