@@ -18,9 +18,12 @@ object ProfilingService {
 
   def profileFromCSV(spark: SparkSession, path: String, output: String): Unit = {
     import edu.upc.essi.dtim.NextiaJD.implicits
-    val DF = spark.read.csv(path)
-    val profile = DF.attProfile(true)
-    profile.attProfile(path,true).repartition(1).write.mode(SaveMode.Overwrite).json(output)
+    val DF = spark.read.option("header",true).csv(path)
+    val tempPathA = Files.createTempFile("a-",".parquet")
+    DF.write.mode(SaveMode.Overwrite).parquet(tempPathA.toAbsolutePath.toString)
+    val DF_parq = spark.read.parquet(tempPathA.toAbsolutePath.toString)
+    DF_parq.cache()
+    DF_parq.attProfile(path,true).repartition(1).write.mode(SaveMode.Overwrite).json(output)
     renamePartitionFile(spark,output)
   }
 
