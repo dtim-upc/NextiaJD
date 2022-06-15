@@ -6,7 +6,7 @@ For this experiment, we manually curated a test dataset of 532 semantic non-synt
 
 * NextiaJD. To see how to install NextiaJD [check this page](https://github.com/dtim-upc/NextiaJD#installation).
 * The spark-submit script. You can find this scrip in your Spark installation under bin folder e.g $SPARK_HOME/bin
-* Download the following [zip file](https://mydisk.cs.upc.edu/s/3fa7RQHoycE95F7/download) and uncompress it. This zip contains the Random Forest models built without chain classifiers.
+* Download the following [zip file]([https://mydisk.cs.upc.edu/s/3fa7RQHoycE95F7/download](https://mydisk.cs.upc.edu/s/nds85623reSo3PM/download)) and uncompress it. This zip contains the Random Forest models built without chain classifiers.
 * Download the [file](https://mydisk.cs.upc.edu/s/eN6XqEJWYAkSP38/download). This file contains the ground truth and distances produced by the semantic non-syntactic pairs. This ground truth was obtaining by applying the following three transformations: (1) string cleaning (e.g., remove accents, dashes, etc.), (2) dictionary lookup(e.g., country codes to country names, author names to full names etc.), and (3) unwind collections. 
 * Download the [JAR]( https://mydisk.cs.upc.edu/s/WPp7ApMzeyPc7sX/download). This JAR contains the class `SemanticNS` which compute the predictions for the Semantic Non-Syntactic pairs using the models provided.
 
