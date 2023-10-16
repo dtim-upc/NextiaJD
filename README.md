@@ -20,7 +20,7 @@
 ## About
 **NextiaJD**, from <a href="https://nahuatl.uoregon.edu/content/nextia" target="_blank">*nextia*</a> in the <a href="https://en.wikipedia.org/wiki/Nahuatl" target="_blank">Nahuatl</a> language (the old Aztec language), is a scalable data discovery system. **NextiaJD** computes profiles, which are succint representations of the underlying characteristics of datasets and their attributes, to efficiently discover joinable attributes on datasets. We aim to automatically discover pairs of attributes in a massive collection of heterogeneous datasets (i.e., data lakes) that can be crossed.
 
-Here, we provide you detailed information on how to run and evaluate NextiaJD. To learn more about the project, visit our [website](https://www.essi.upc.edu/dtim/nextiajd/).
+Here, we provide you detailed information on how to run and evaluate NextiaJD. 
 
 ## Key features   
 * Attribute profiling built-in Spark  
@@ -136,12 +136,4 @@ More information and a video can be found [here](https://www.essi.upc.edu/~jflor
  
 ## Reproducibility of Experiments
 
-We performed differents experiments to evaluate the predictive performance and efficiency of NextiaJD. In the spirit of open research and experimental reproducibility, we provide detailed information on how to reproduce them. More information about it can be found [here](https://github.com/dtim-upc/NextiaJD/tree/main/experiments#reproducibility-of-experiments).
-
-## Publications
-
-Using NextiaJD v1.0.1: 
-
-* ["Towards Scalable Data Discovery"](https://openproceedings.org/2021/conf/edbt/p61.pdf) published in EDBT - 2021
-* ["Effective and scalable data discovery with NextiaJD"](https://openproceedings.org/2021/conf/edbt/p184.pdf) published in EDBT - 2021
-
+We performed differents experiments to evaluate the predictive performance and efficiency of NextiaJD. In the spirit of open research and experimental reproducibility, we provide detailed information on how to reproduce them. 
